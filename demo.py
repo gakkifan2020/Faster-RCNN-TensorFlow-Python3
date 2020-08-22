@@ -36,8 +36,8 @@ CLASSES = ('__background__',
            'motorbike', 'person', 'pottedplant',
            'sheep', 'sofa', 'train', 'tvmonitor')
 
-NETS = {'vgg16': ('vgg16_faster_rcnn_iter_70000.ckpt',), 'res101': ('res101_faster_rcnn_iter_110000.ckpt',)}
-DATASETS = {'pascal_voc': ('voc_2007_trainval',), 'pascal_voc_0712': ('voc_2007_trainval+voc_2012_trainval',)}
+NETS = {'vgg16': ('vgg16_faster_rcnn_iter_1000.ckpt',), 'res101': ('res101_faster_rcnn_iter_110000.ckpt',)}
+DATASETS = {'pascal_voc': ('voc_2007_trainval',), 'pascal_voc_0712': ('voc_2007_trainval',)}
 
 
 def vis_detections(im, class_name, dets, thresh=0.5):
@@ -105,9 +105,9 @@ def parse_args():
     """Parse input arguments."""
     parser = argparse.ArgumentParser(description='Tensorflow Faster R-CNN demo')
     parser.add_argument('--net', dest='demo_net', help='Network to use [vgg16 res101]',
-                        choices=NETS.keys(), default='res101')
+                        choices=NETS.keys(), default='vgg16')
     parser.add_argument('--dataset', dest='dataset', help='Trained dataset [pascal_voc pascal_voc_0712]',
-                        choices=DATASETS.keys(), default='pascal_voc_0712')
+                        choices=DATASETS.keys(), default='pascal_voc')
     args = parser.parse_args()
 
     return args

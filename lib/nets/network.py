@@ -54,7 +54,7 @@ class Network(object):
                           cols[2] / width], axis=1)
         # add batch dimension (assume batch_size==1)
         #assert image.get_shape()[0] == 1
-        boxes = tf.expand_dims(boxes, dim=0)
+        boxes = tf.expand_dims(boxes, axis=0)
         image = tf.image.draw_bounding_boxes(image, boxes)
 
         return tf.summary.image('ground_truth', image)
